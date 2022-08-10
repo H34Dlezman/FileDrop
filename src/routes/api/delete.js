@@ -1,5 +1,4 @@
-import { uploadFile, generateFileKey, deleteFile } from "./_storage";
-import stream from 'stream';
+import { deleteFile } from "./_storage";
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function GET() {
@@ -10,7 +9,7 @@ export async function GET() {
       'access-control-allow-origin': '*'
     },
     body: {
-      message: "KhELOLO LULULULLULULULULLULULUL"
+      message: "file delit u can hia"
     }
   };
 }
@@ -20,8 +19,8 @@ export const POST = async ({ request, locals }) => {
 
   let json = await request.json()
 
-  const result = await uploadFile(json.file, json.name, request.headers.get("Content-Type"))
-  console.log("UL RES", result)
+  const result = await deleteFile(json.key)
+  console.log("Delete RES", result)
 
   if (result == -1) {
     return { status: 404, body: {error: "error uploading to bucket"} };

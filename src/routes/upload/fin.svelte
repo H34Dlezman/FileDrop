@@ -19,7 +19,7 @@
 </script>
 
 <page>
-	<h1>FileDrop</h1>
+	<a href="/" class="title">FileDrop</a>
 
 	<a href={fileURL}>{fileName||""}</a>
 	<Clipboard

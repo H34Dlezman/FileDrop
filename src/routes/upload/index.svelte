@@ -55,7 +55,7 @@
 </script>
 
 <page>
-	<h1>FileDrop</h1>
+	<a href="/" class="title">FileDrop</a>
 
 	<h2>{fileName||""}</h2>
 	<h3>{fileDrop?Math.floor(fileDrop.size/1024/1024*100)/100.0+" MB":""}</h3>

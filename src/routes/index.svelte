@@ -26,7 +26,7 @@
 
 
 <page>
-	<h1>FileDrop</h1>
+	<a class="title">FileDrop</a>
 
 	<Dropzone on:drop={handleFilesSelect} containerClasses="fileDrop dropzone" disableDefaultStyles>
 		CLICK or Drop File
@@ -41,4 +41,9 @@
 	<h3>{fileDrop?
 	`${Math.floor(fileDrop.size/1024/1024*100.0)/100.0} MB`
 	:""}</h3>
+
+
+	<a href="/delete">
+		löschen?
+	</a>
 </page>
