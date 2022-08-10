@@ -11,7 +11,13 @@
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "next",
 		"svelte": "^3.44.0",
+		"svelte-clipboard": "^1.0.0",
 		"vite": "^3.0.0"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"aws-sdk": "^2.1191.0",
+		"fs": "^0.0.1-security",
+		"svelte-file-dropzone": "^1.0.0"
+	}
 }

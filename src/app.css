@@ -1,0 +1,72 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+}
+
+page {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+h1 {
+	margin: 55px;
+	font-size: 42px;
+}
+
+h2 {
+	font-size: 32px;
+}
+
+h3 {
+	font-size: 20px;
+}
+
+input {
+	margin: 12px 0;
+	font-size: 32px;
+	width: 100%;
+	border: none;
+	text-align: center;
+}
+
+button {
+	margin: 12px 0;
+	background: orangered;
+	color: white;
+	border-radius: 3.5px;
+	width: 200px;
+	height: 75px;
+
+	font-size: 24px;
+	cursor: pointer;
+}
+
+button:disabled {
+	cursor: unset;
+	opacity: 0.4;
+}
+
+.fileDrop {
+	flex: unset!important;
+	background: var(--accent-color);
+	height:  35vh;
+	width: 100%;
+	margin: 25px 0!important;
+	display:  flex;
+	justify-content: center;
+	align-items: center;
+	cursor: grab;
+	font-size: 24px;
+}
+
+.ldBar-label {
+	font-size: 42px;
+}
