@@ -7,6 +7,7 @@
             method: "POST",
             body: JSON.stringify({key})
         },)
+        fileURL = ""
         alert("tahnkiU")
 	}
 
