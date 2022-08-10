@@ -44,7 +44,7 @@
 				alert("upload error 💥")
 				return;
 			}
-			url.set(json.location)
+			url.set("https://vifz.it"+(new URL(json.location).pathname).slice(5))
 			goto("/upload/fin")
 		});
 		request.send(data);
