@@ -10,7 +10,7 @@ export async function GET() {
       'access-control-allow-origin': '*'
     },
     body: {
-      message: "KhELOLO LULULULLULULULULLULULUL"
+      message: "KhELOLO LULULULL"
     }
   };
 }

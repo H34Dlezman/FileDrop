@@ -1,7 +1,7 @@
 <script>
 	import { goto } from '$app/navigation';
 	import Dropzone from 'svelte-file-dropzone';
-	import { name, file } from './store.js';
+	import { name, file, password } from './store.js';
 	import { toBase64 } from '$lib/'
 
 	function handleFilesSelect(e) {
@@ -14,6 +14,7 @@
 	async function upload() {
 		file.set(fileDrop)
 		name.set(fileName)
+		password.set(filePassword)
 		goto("/upload")
 
 	}
@@ -21,6 +22,7 @@
 
 	let fileDrop = null
 	let fileName = ""
+	let filePassword = ""
 	let fileNameInput
 </script>
 
@@ -41,6 +43,8 @@
 	<h3>{fileDrop?
 	`${Math.floor(fileDrop.size/1024/1024*100.0)/100.0} MB`
 	:""}</h3>
+
+	<!-- <input type="text" name="password" disabled={fileDrop==null} bind:value={filePassword} placeholder="passwort?"> -->
 
 
 	<a href="/delete">

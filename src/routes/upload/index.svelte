@@ -1,10 +1,12 @@
 <script>
 	import { goto } from '$app/navigation';
 	import { toBase64 } from '$lib/'
-	import { name, file, url } from '../store.js';
+	import CryptoJS from 'crypto-js';
+	import { name, file, password, url } from '../store.js';
 
 	let fileDrop = null
 	let fileName = null
+	let filePassword = null
 
 	file.subscribe(f => {
 		fileDrop = f;
@@ -12,15 +14,23 @@
 	name.subscribe(n => {
 		fileName = n;
 	});
+	password.subscribe(p => {
+		filePassword = p;
+	});
 
 	async function upload() {
-		if (fileDrop==null || fileName==null) {
+		if (fileDrop==null || fileName==null || filePassword==null) {
 			return;
 		}
 		console.log("start Upload", fileDrop)
+		var fileData = await toBase64(fileDrop)
+
+		if (filePassword!="") {
+			fileData = encrypt(fileData)
+		}
 		
 		let data = JSON.stringify({
-			file: await toBase64(fileDrop),
+			file: fileData,
 			name: fileName
 		});
 
@@ -44,12 +54,22 @@
 				alert("upload error 💥")
 				return;
 			}
-			url.set("https://vifz.it"+(new URL(json.location).pathname).slice(5))
+			url.set(
+				(filePassword? 
+					"https://filedrop.frty.de/file?key=" :
+					"https://vifz.it/") 
+				+ (new URL(json.location).pathname).slice(5)
+				)
 			goto("/upload/fin")
 		});
 		request.send(data);
 
 	}
+
+	function encrypt(data) {
+		return CryptoJS.AES.encrypt(data, filePassword).toString()
+	}
+
 
 	setTimeout(upload, 500)
 </script>

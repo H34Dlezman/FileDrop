@@ -17,6 +17,7 @@
 	"type": "module",
 	"dependencies": {
 		"aws-sdk": "^2.1191.0",
+		"crypto-js": "^4.1.1",
 		"fs": "^0.0.1-security",
 		"svelte-file-dropzone": "^1.0.0"
 	}
